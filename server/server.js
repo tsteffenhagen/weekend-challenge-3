@@ -1,1 +1,15 @@
-var express = require('express')
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var port = 5000;
+var todo = require('./routes/todo.js');
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('server/public'));
+
+app.use('/todo', todo);
+
+//Start listening for requests on port 5k
+app.listen(port, function() {
+    console.log('listening on port ', port);    
+});
