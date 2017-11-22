@@ -1,0 +1,25 @@
+{
+  "name": "weekend-challenge-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsteffenhagen/weekend-challenge-3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsteffenhagen/weekend-challenge-3/issues"
+  },
+  "homepage": "https://github.com/tsteffenhagen/weekend-challenge-3#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "pg": "^7.4.0"
+  }
+}
