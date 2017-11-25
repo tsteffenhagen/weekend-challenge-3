@@ -1,3 +1,9 @@
 table, th, td {
     border: 1px solid black;
+    float: center;
+}
+
+
+body {
+    background-color: rgb(45, 216, 216);
 }
