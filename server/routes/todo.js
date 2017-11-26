@@ -9,8 +9,8 @@ router.post('/', function (req, res) {
             console.log('Error connecting to database:', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`INSERT INTO list (task, description, due_date, completed)
-            VALUES ($1, $2, $3, $4);`, [req.body.task, req.body.description, req.body.dueDate, req.body.completed],
+            client.query(`INSERT INTO list (task, description, due_date, completed, work_type)
+            VALUES ($1, $2, $3, $4, $5);`, [req.body.task, req.body.description, req.body.dueDate, req.body.completed, req.body.taskType],
                 function (errorMakingQuery, result) {
                     done();
                     if (errorMakingQuery) {
@@ -71,7 +71,7 @@ router.put('/:id', function (req, res) {
             console.log('Error connecting to database', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query(`UPDATE list SET completed = 'Y' WHERE user_id=$1;`, [listItemIdToChange], function (errorMakingQuery, result) {
+            client.query(`UPDATE list SET completed = 'Y', work_time = $1 WHERE user_id= $2;`, [req.body.time, listItemIdToChange], function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {
                     console.log('Error making query', errorMakingQuery);
