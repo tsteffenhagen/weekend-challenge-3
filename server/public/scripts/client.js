@@ -37,6 +37,9 @@ $(document).ready(function () {
     $('#listShow').on('click', toggleToDoShow);
 
     $('#statShow').on('click', toggleStatsShow);
+
+    drawChart();    
+    
 })//End Document on ready
 
 var workTime = 0;
@@ -57,6 +60,8 @@ function addListItem(newListItem) {
             getToDoList();
         }
     })
+    $('#form').find('input').val(''); 
+    $('#form').find('textarea').val(''); 
 }//end addListItem function
 
 function getToDoList() {
@@ -111,10 +116,9 @@ function getToDoList() {
             }
             for (let i = 0; i < response.length; i++) {
                 var listItem = response[i];
-                if (listItem.work_time == NaN) {
-                    console.log('need some numbers');
-                    
-                 }else if (listItem.work_type == 'work') {
+                if (listItem.work_time == null) {
+                    console.log('enter a nuber');                    
+                } else if (listItem.work_type == 'work') {
                     workTime += parseInt(listItem.work_time);
                     totalTime += parseInt(listItem.work_time);
                 } else if (listItem.work_type == 'school') {
@@ -207,4 +211,8 @@ function toggleStatsShow() {
     $('#statisticsDiv').show();
 
     $('#toDoListDiv').hide();
+}
+
+function drawChart() { 
+
 }
